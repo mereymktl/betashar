@@ -315,38 +315,5 @@
     <div class="hosts-title">Шақыру иелері:</div>
     <div class="host-names">Амангелді & Лола</div>
   </div>
-
-  <h2>Салтанатты кешке қатысатыныңызды растаңыз:</h2>
-  <form action="https://formspree.io/f/xwpqkvgo" method="POST">
-    <input type="text" name="name" placeholder="Сіздің аты-жөніңіз" required /><br>
-    <button class="btn" type="submit" name="response" value="Yes - Alone">Иә, жалғыз келемін</button>
-    <button class="btn" type="submit" name="response" value="Yes - With Partner">Иә, жұбыммен келемін</button>
-    <button class="btn" type="submit" name="response" value="No">Кешіріңіз, қатыса алмаймын</button>
-  </form>
-
-  <div id="countdown"></div>
-
-  <script>
-    const eventDate = new Date('2025-08-07T17:00:00');
-    const countdownEl = document.getElementById('countdown');
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = eventDate - now;
-      if (diff <= 0) {
-        countdownEl.textContent = "Беташар басталды!";
-        clearInterval(timer);
-        return;
-      }
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-      countdownEl.textContent = `Қалған уақыт: ${days} күн ${hours} сағат ${minutes} минут ${seconds} секунд`;
-    }
-
-    updateCountdown();
-    const timer = setInterval(updateCountdown, 1000);
-  </script>
 </body>
 </html>
