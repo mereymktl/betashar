@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Беташарға шақыру</title>
+
+  <!-- Elegant Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Marcellus&display=swap" rel="stylesheet" />
+
+  <style>
+    html, body {
+      font-family: 'Cormorant Garamond', serif;
+      background: linear-gradient(to bottom, #f3f2ec, #e9e6dc);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      text-align: center;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      color: #1e2d4a;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    h1, .poem .title {
+      font-family: 'Marcellus', serif;
+      font-size: 3em;
+      color: #002d62;
+      margin-top: 0.6em;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      color: #35507b;
+    }
+
+    p, input[type="text"], button, #countdown, .btn {
+      font-family: 'Cormorant Garamond', serif;
+      color: #1e2d4a;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      margin: 10px;
+      background: #c9a339;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #b08d2c;
+    }
+
+    .container {
+      max-width: 650px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .highlight-date {
+      font-size: 2.4em;
+      font-weight: bold;
+      color: #002d62;
+      margin: 30px 0 10px;
+    }
+
+    .poem {
+      margin: 20px 0 30px;
+      font-size: 1.2em;
+      color: #1e2d4a;
+      line-height: 1.6;
+    }
+
+    .poem .title {
+      font-size: 2.2em;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .poem .invite-bold {
+      font-weight: bold;
+    }
+
+    .timeline {
+      margin-top: 40px;
+    }
+
+    .timeline-item {
+      margin-bottom: 20px;
+    }
+
+    .timeline-item img {
+      width: 70px;
+      height: 70px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      object-fit: cover;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .timeline-time {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 5px;
+    }
+
+    .audio-player {
+      margin-top: 20px;
+      position: relative;
+      height: 130px;
+    }
+
+    .audio-wrapper {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+    }
+
+    .rotating-ring {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      animation: rotate 4s linear infinite;
+      z-index: 1;
+    }
+
+    .rotating-ring img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .play-button img {
+      width: 50px;
+      height: 50px;
+    }
+
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      font-size: 1em;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    #countdown {
+      font-size: 1.4em;
+      margin: 30px 0 10px;
+      color: #35507b;
+    }
+
+    .hosts {
+      margin: 40px auto 20px;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    .hosts-title {
+      font-size: 1.6em;
+      color: #1e2d4a;
+      margin-bottom: 8px;
+    }
+
+    .host-names {
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #c9a339;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="betashar.webp" alt="Wedding Banner" />
+
+  <div class="audio-player">
+    <div class="audio-wrapper">
+      <div class="rotating-ring">
+        <img src="click to play.PNG" alt="Play Ring">
+      </div>
+      <button class="play-button" onclick="toggleAudio()">▶️</button>
+    </div>
+    <audio id="wedding-audio" src="Жар-жар.mp3"></audio>
+  </div>
+
+  <script>
+    function toggleAudio() {
+      const audio = document.getElementById('wedding-audio');
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+  </script>
+
+  <div class="poem">
+    <div class="title">Құрметті ағайын-туыс, ел-жұрт!</div>
+    <p>Жаңа түскен келінге бата беріп, дәстүрді дәріптеп,<br>
+       Ақ тілекпен, ән-жырымызбен қуанышқа кенеліп,<br>
+       Ұлы дәстүр – <strong>Беташар</strong> рәсіміне шын жүректен шақырамыз.</p>
+    <p><span class="invite-bold">2025 жылдың 7 тамызы күні</span>,<br>
+       Ұлт салт-дәстүрі мен өнері тоғысатын кешке қош келдіңіздер!</p>
+  </div>
+
+  <div class="highlight-date">2 Тамыз 2025</div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <img src="yurt.png" alt="Қонақтарды қарсы алу">
+      <div class="timeline-time">12:00</div>
+      <div>Қонақтарды қарсы алу</div>
+    </div>
+    <div class="timeline-item">
+      <img src="bride.png" alt="Келінді түсіру">
+      <div class="timeline-time">13:30</div>
+      <div>Келінді түсіру</div>
+    </div>
+    <div class="timeline-item">
+      <img src="veil.png" alt="Беташар рәсімі">
+      <div class="timeline-time">14:00</div>
+      <div>Беташар рәсімі</div>
+    </div>
+    <div class="timeline-item">
+      <img src="shashu.png" alt="Шашу шашу және тілек айту">
+      <div class="timeline-time">15:30</div>
+      <div>Шашу шашу және тілек айту</div>
+    </div>
+    <div class="timeline-item">
+      <img src="prayer.png" alt="Бата беру">
+      <div class="timeline-time">16:45</div>
+      <div>Ақ бата беру</div>
+    </div>
+  </div>
+
+  <h2>Өтетін орны: Ақтау, Толқын-2/122</h2>
+  <div class="map-link">
+    <a href="https://2gis.kz/aktau/search/tolkyn-2%2C%20122%2C%20aktau/geo/70030076138566684/51.174713%2C43.672719?m=51.179701%2C43.672738%2F16" target="_blank" rel="noopener noreferrer">
+      <img src="2gis.png" alt="2GIS Map">
+    </a>
+  </div>
+
+  <div class="hosts">
+    <div class="hosts-title">Шақыру иелері:</div>
+    <div class="host-names">Амангелді & Лола</div>
+  </div>
+
+  <h2>Салтанатты кешке қатысатыныңызды растаңыз:</h2>
+  <form action="https://formspree.io/f/xwpqkvgo" method="POST">
+    <input type="text" name="name" placeholder="Сіздің аты-жөніңіз" required /><br>
+    <button class="btn" type="submit" name="response" value="Yes - Alone">Иә, жалғыз келемін</button>
+    <button class="btn" type="submit" name="response" value="Yes - With Partner">Иә, жанұяммен келемін</button>
+    <button class="btn" type="submit" name="response" value="No">Кешіріңіз, қатыса алмаймын</button>
+  </form>
+
+  <div id="countdown"></div>
+
+  <script>
+    const eventDate = new Date('2025-08-07T17:00:00');
+    const countdownEl = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+      if (diff <= 0) {
+        countdownEl.textContent = "Беташар басталды!";
+        clearInterval(timer);
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      countdownEl.textContent = `Қалған уақыт: ${days} күн ${hours} сағат ${minutes} минут ${seconds} секунд`;
+    }
+
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
